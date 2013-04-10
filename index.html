@@ -2,26 +2,39 @@
 <html>
   <head>
     <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
+    <script async src="data_generator.js"></script>
+    <script async src="js/hackreactor.js"></script>
   </head>
   <body>
+    <div class="span4 well">
+        <form accept-charset="UTF-8" action="" method="POST">
+            <textarea class="span4" id="new_message" name="new_message"
+            placeholder="Type in your message" rows="5"></textarea>
+            <h6 class="pull-right">320 characters remaining</h6>
+            <button class="btn btn-info" type="submit">Post New Message</button>
+        </form>
+    </div>
+    <button id="RandomButton" class="btn">Random Tweet</button>
+
+    <div id="twitter">
+    </div>
+
     <script>
+//     $(document).ready(function(){
+//   $('button').on('click', function(){
+//     var tour = $(this).closest('.tour');
+//     var discount = tour.data('discount');
+//     var message = $("<span>Call 1-555-jquery-air for a $" + discount + "</span>");
+//     tour.append(message);
+//     $(this).remove();
+//   });
+// });
+    jQuery(document).ready(function() {
+      $('#RandomButton').on('click', function() {
+        randomTweet()
+      })
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
-
-      });
-
+    });
     </script>
   </body>
 </html>
