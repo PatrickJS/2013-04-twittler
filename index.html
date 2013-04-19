@@ -3,6 +3,7 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="js/jquery.timeago.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/iphone.js"></script>
     <script src="js/hackreactor.js"></script>
@@ -10,20 +11,35 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
     <link rel="stylesheet" type="text/css" href="css/iphone.css">
     <link rel="stylesheet" type="text/css" href="css/my_hack_iphone.css">
+    <link rel="stylesheet" type="text/css" href="css/tweet.css">
   </head>
   <body>
     <div class="container-fluid">
-    <h1>
+     <h1>
       HackerTweet
       <div class="pull-right">
-        <h3>@gdi2290</h3>
-
+        <h3>
+          <a href="https://twitter.com/gdi2290/" target="_blank">@gdi2290</a>
+        </h3>
       </div>
     </h1>
     <div class="row">
-      <div class="span1 offset5">
-
-    <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/libs/jquery-1.7.js"%3E%3C/script%3E'))</script>
+      <div class="span6">
+      <div class="well">
+        <div class="input-prepend">
+          <span class="add-on">@</span>
+          <input class="span2" id="tweetUser" type="text" placeholder="Username">
+        </div>
+        <textarea class="span5" id="new_message" name="new_message" placeholder="Type in your message" rows="5"></textarea>
+        <!-- <h6 class="pull-right">320 characters remaining</h6> -->
+        <button id="postTweet" class="btn btn-info">Post New Message</button>
+      </div>
+      <br>
+      <button id="randomTweet" class="btn">Random Tweet</button>
+      <button id="liveTweet" class="btn" >Live Tweets</button>
+      <br>
+      </div>
+      <div class="span4">
 
   <div class="iphone_container"><div class="iphone">
 
@@ -47,7 +63,7 @@
 
     <div id="iphone_alert" class="iphone_alert" style="-webkit-transform: scale(0); -webkit-transition: none; transition: none; opacity: 1;">
                 <div class="alert">
-                    <div class="text"><b>Oh Hai</b>i c u leik tacos</div>
+                    <div class="text"><b>Oh Hai</b>I heard you like alerts</div>
                     <div class="button f_left" onclick="iphone.hide_alert()">Cancel</div>
                     <a class="button f_right light" href="https://twitter.com/gdi2290/" target="_blank">Tweet</a>
                     <br class="clear">
@@ -80,7 +96,7 @@
     </div>
 
     <div class="iphone_icons_containter" id="iphone_icons_containter">
-      <div class="icon" style="left: 20px; top: -50px;">
+      <div class="icon" style="left: -100px; top: -100px;">
         <span id="twitter"></span>
       </div>
 
@@ -109,5 +125,30 @@
   </audio>
 </div>
 </div>
+
+
   </body>
+      <script>
+
+jQuery(function($) {
+  $('time.timeago').timeago();
+  $('#postTweet').on('click', function() {
+    return postTweet();
+  });
+  $('#randomTweet').on('click', function() {
+    return randomTweet();
+  });
+  $('#liveTweet').on('click', function() {
+    if ($(this).hasClass('btn-info')) {
+      stopLive();
+      return $(this).button('toggle').removeClass('btn-info');
+    } else {
+      liveTweet();
+      return $(this).button('toggle').addClass('btn-info');
+    }
+  });
+});
+
+    </script>
+
 </html>
