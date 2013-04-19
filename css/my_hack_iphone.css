@@ -25,12 +25,12 @@
 .iphone_icons_containter span {
   display: block;
   text-align: left;
-  font: bold 11px/15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font: 11px/15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
   color: #fff;
   text-shadow: rgba(0,0,0,0.3) 1px 2px 1px;
-  text-transform: capitalize;
+  text-transform: none;
   position: absolute;
-  top: 58px;
-  left: -10px;
+  top: 95px;
+  left: 110px;
   width: 300px;
 }
