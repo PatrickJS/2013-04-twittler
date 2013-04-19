@@ -1,0 +1,15 @@
+#twitter {
+  display: none;
+}
+.newTweet {
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: gray;
+  padding: 4px;
+}
+
+
+footer {
+  margin-top: 50px;
+}
+
